@@ -9,11 +9,7 @@ const App = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (username === 'admin' && password === '123456') {
-      setLoggedIn(true);
-    } else {
-      alert('Credenciais inválidas');
-    }
+    setLoggedIn(true);
   };
 
   const handleLogout = () => {
@@ -24,7 +20,6 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Faça seu Login:</h1>
       {!loggedIn ? (
         <LoginForm
           username={username}
@@ -34,9 +29,9 @@ const App = () => {
           handleLogin={handleLogin}
         />
       ) : (
-        <div>
+        <div className="welcome">
           <h2>Bem-vindo, {username}!</h2>
-          <button onClick={handleLogout}>Logout</button>
+          <button className="logout-button" onClick={handleLogout}>Voltar</button>
         </div>
       )}
     </div>
